@@ -1,0 +1,6 @@
+torch
+torchvision
+transformers
+pandas
+scikit-learn
+sentence-transformers
