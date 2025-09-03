@@ -16,10 +16,10 @@ pip install -U -r requirements.txt
 2. Extract the dataset: `7z x MCFEND.7z`
 3. Move the extracted `news.csv` and `social_context.csv` files into the `mcfend` folder of this repository.
 4. Run the preprocessing script to extract the part of `social_context.csv` relevant to Weibo-21: `python clean-csv.py`
-# Training and Evaluation
+## Training and Evaluation
 - Standard **BERT** fine-tuning (BERT): `bash run.sh`
 - **BERT-ST**, which incorporates user comments via a Sentence Transformer: `bash run-comment.sh`
-# Results
+## Results
 - BERT
 
 | Seed       | 42     | 43     | 44     | 45     | 46     | Average |
