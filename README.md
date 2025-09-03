@@ -5,7 +5,7 @@ However, related discussions on social media platforms such as Weibo and X (form
 
 We demonstrate that incorporating user comments into a uni-modal FND pipeline significantly enhances performance. Specifically, we leverage the `[CLS]` token representation obtained from a BERT-based encoder for the target news piece and combine it with the vector representations of associated user comments using a Transformer-based fusion module.
 
-This simple yet effective integration achieves a new state-of-the-art performance on the largest (high-quality) Chinese FND dataset, Weibo-21, improving the previous best macro F1-score from **0.943** (BERT-EMO) to **0.9712**.
+This simple yet effective integration achieves a new state-of-the-art performance on the largest (**high-quality**) Chinese FND dataset, Weibo-21, improving the previous best macro F1-score from **0.943** (BERT-EMO) to **0.9712**.
 
 ## Installation
 ```bash
