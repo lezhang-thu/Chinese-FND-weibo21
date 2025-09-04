@@ -5,7 +5,7 @@ However, related discussions on social media platforms such as Weibo and X (form
 
 We demonstrate that incorporating user comments into a uni-modal FND pipeline significantly enhances performance. Specifically, we leverage the `[CLS]` token representation obtained from a BERT-based encoder for the target news piece and combine it with the vector representations of associated user comments using a Transformer-based fusion module.
 
-This simple yet effective integration achieves a new state-of-the-art performance on the largest (**high-quality**) Chinese FND dataset, Weibo-21, improving the previous best macro F1-score from **0.943** (BERT-EMO) to **0.9712**.
+This simple yet effective integration achieves a new state-of-the-art performance on the largest (**high-quality**) Chinese FND dataset, Weibo-21, improving the previous best macro F1-score from **0.943** (BERT-EMO) to **0.97748**.
 
 ## Installation
 ```bash
@@ -25,11 +25,11 @@ pip install -U -r requirements.txt
 | Seed       | 42     | 43     | 44     | 45     | 46     | Average |
 |------------|--------|--------|--------|--------|--------|---------|
 |**Macro F1**| 0.9343 | 0.9321 | 0.9299 | 0.9365 | 0.9377 | 0.9341  |
-|**Accuracy**| 0.9343 | 0.9321 | 0.9299 | 0.9365 | 0.9380 | 0.9342  |
+|**Accuracy**| 0.9343 | 0.9321 | 0.9299 | 0.9365 | 0.9380 | 0.93416 |
 
 - BERT-ST
 
 | Seed       | 42     | 43     | 44     | 45     | 46     | Average |
 |------------|--------|--------|--------|--------|--------|---------|
-|**Macro F1**| 0.9730 | 0.9657 | 0.9788 | 0.9679 | 0.9706 | 0.9712  |
-|**Accuracy**| 0.9730 | 0.9657 | 0.9788 | 0.9679 | 0.9708 | 0.9712  |
+|**Macro F1**| 0.981  | 0.9781 | 0.9766 | 0.9796 | 0.9721 | 0.97748 |
+|**Accuracy**| 0.981  | 0.9781 | 0.9766 | 0.9796 | 0.9723 | 0.97752 |
