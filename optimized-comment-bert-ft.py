@@ -19,7 +19,7 @@ MAX_LEN = 256
 BATCH_SIZE = 32
 SEED = int(sys.argv[1])
 M = int(sys.argv[2])
-print('SEED: {}'.format(SEED))
+print('SEED: {}, M: {}'.format(SEED, M))
 # URL = 'bert-base-chinese'
 URL = '/home/ubuntu/.cache/huggingface/hub/models--bert-base-chinese/snapshots/c30a6ed22ab4564dc1e3b2ecbf6e766b0611a33f'
 
@@ -35,7 +35,7 @@ class NewsDataset(Dataset):
         self.st = SentenceTransformer('all-MiniLM-L6-v2').cuda()
         self.st.eval()
         self.comments = pd.read_csv('mcfend/clean-social_context.csv')
-        self.max_item = M
+        self.max_item = M - 1
 
     def __len__(self):
         return len(self.data)
@@ -258,7 +258,8 @@ for epoch in range(num_epochs):
     if val_f1 > best_val_f1:
         best_val_f1 = val_f1
         epochs_without_improvement = 0
-        torch.save(model.state_dict(), 'best_model.pth')
+        torch.save(model.state_dict(),
+                   'best_model-bert-st-s-{}-m-{}.pth'.format(SEED, M))
     else:
         epochs_without_improvement += 1
         if epochs_without_improvement >= patience:
@@ -266,7 +267,9 @@ for epoch in range(num_epochs):
             break
 
 # Load the best model and evaluate on the test set
-model.load_state_dict(torch.load('best_model.pth', weights_only=True))
+model.load_state_dict(
+    torch.load('best_model-bert-st-s-{}-m-{}.pth'.format(SEED, M),
+               weights_only=True))
 model.eval()
 test_preds = []
 test_labels = []
